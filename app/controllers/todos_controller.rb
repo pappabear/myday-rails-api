@@ -1,34 +1,45 @@
 class TodosController < ApplicationController
   before_action :set_todo, only: [:show, :update, :destroy]
 
+
   def index
     render json: Todo.all
   end
+
 
   def show
     render json: Todo.find(params[:id])
   end
 
+
   def create
     todo = Todo.new(todo_params)
     
-    if todo.save
+    if todo.save!
       render json: todo
     else
-      render json: {status: 500, err: 'todo could not be saved.'}
+      render json: {status: 500, err: 'todo could not be created.'}
     end
   end
 
+
   def update
     todo = Todo.find(params[:id])
-    todo.update(todo_params)
-    render json: todo
+    if todo.update!(todo_params)
+      render json: todo
+    else
+      render json: {status: 500, err: 'todo could not be updated.'}
+    end  
   end
+
 
   def destroy
     todo = Todo.find(params[:id])
-    todo.destroy
-    render json: {message: "successfully deleted!"}, status: 200
+    if todo.destroy!
+      render json: {message: "successfully deleted!"}, status: 200
+    else
+      render json: {status: 500, err: 'todo could not be destroyed.'}
+    end  
   end
 
         
@@ -45,7 +56,8 @@ class TodosController < ApplicationController
     # whitelist params
     params.permit(:id, :title, :owner, :complete)
   end
-            
+    
+  
   def set_todo
     @todo = Todo.find(params[:id])
   end

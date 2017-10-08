@@ -21,3 +21,9 @@ Get it setup with:
 Run it with:
 
 * $ rails s -p 3001
+
+Run tests with:
+
+* bundle exec rspec
+
+
