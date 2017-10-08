@@ -7,6 +7,16 @@ class TodosController < ApplicationController
   end
 
 
+  def today
+    render json: Todo.where("(complete is null and due_date<?) or (complete = 'f' and due_date<?) or (due_date=?)", Date.today, Date.today, Date.today)
+  end
+
+
+  def tomorrow
+    render json: Todo.where("due_date=?", Date.tomorrow)
+  end
+
+
   def show
     render json: Todo.find(params[:id])
   end

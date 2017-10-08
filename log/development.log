@@ -3616,3 +3616,155 @@ Processing by TodosController#index as */*
 Completed 200 OK in 8ms (Views: 5.5ms | ActiveRecord: 0.6ms)
 
 
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "todos" WHERE "todos"."id" = ?[0m  [["id", 81]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "todos" WHERE "todos"."id" = ?[0m  [["id", 82]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[31mDELETE FROM "todos" WHERE "todos"."id" = ?[0m  [["id", 83]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "todos" ("title", "owner", "complete", "created_at", "updated_at", "due_date") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Due yesterday"], ["owner", "chip.irek@gmail.com"], ["complete", "f"], ["created_at", "2017-10-08 20:03:52.349990"], ["updated_at", "2017-10-08 20:03:52.349990"], ["due_date", "2017-10-07"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("title", "owner", "complete", "created_at", "updated_at", "due_date") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Due today"], ["owner", "chip.irek@gmail.com"], ["complete", "f"], ["created_at", "2017-10-08 20:03:52.352291"], ["updated_at", "2017-10-08 20:03:52.352291"], ["due_date", "2017-10-08"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("title", "owner", "complete", "created_at", "updated_at", "due_date") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "walk the dog"], ["owner", "chip.irek@gmail.com"], ["complete", "t"], ["created_at", "2017-10-08 20:03:52.353663"], ["updated_at", "2017-10-08 20:03:52.353663"], ["due_date", "2017-10-08"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/today" for ::1 at 2017-10-08 16:04:09 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  
+ActionController::RoutingError (No route matches [GET] "/today"):
+  
+actionpack (5.0.6) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+actionpack (5.0.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.6) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.6) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.6) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.1) lib/rack/cors.rb:93:in `call'
+railties (5.0.6) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `call'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/today" for ::1 at 2017-10-08 16:05:22 -0400
+Processing by TodosController#today as */*
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE ((complete is null and due_date<'2017-10-08') or (complete = 'f' and due_date<'2017-10-08') or (due_date='2017-10-08'))[0m
+Completed 200 OK in 8ms (Views: 5.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/today" for ::1 at 2017-10-08 16:06:14 -0400
+Processing by TodosController#today as */*
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE ((complete is null and due_date<'2017-10-08') or (complete = 'f' and due_date<'2017-10-08') or (due_date='2017-10-08'))[0m
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/today" for ::1 at 2017-10-08 16:08:05 -0400
+Processing by TodosController#today as */*
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE ((complete is null and due_date<'2017-10-08') or (complete = 'f' and due_date<'2017-10-08') or (due_date='2017-10-08'))[0m
+Completed 200 OK in 7ms (Views: 4.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/today" for ::1 at 2017-10-08 16:08:06 -0400
+Processing by TodosController#today as */*
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE ((complete is null and due_date<'2017-10-08') or (complete = 'f' and due_date<'2017-10-08') or (due_date='2017-10-08'))[0m
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/tomorrow" for ::1 at 2017-10-08 16:08:09 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/tomorrow"):
+  
+actionpack (5.0.6) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+actionpack (5.0.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.6) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.6) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.6) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.1) lib/rack/cors.rb:93:in `call'
+railties (5.0.6) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `call'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/tomorrow" for ::1 at 2017-10-08 16:09:10 -0400
+Processing by TodosController#tomorrow as */*
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE (where('due_date='2017-10-09'')[0m
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.2ms)
+
+
+  
+ActiveRecord::StatementInvalid (SQLite3::SQLException: near "where": syntax error: SELECT "todos".* FROM "todos" WHERE (where('due_date='2017-10-09'')):
+  
+app/controllers/todos_controller.rb:16:in `tomorrow'
+Started GET "/tomorrow" for ::1 at 2017-10-08 16:10:11 -0400
+Processing by TodosController#tomorrow as */*
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE (due_date='2017-10-09')[0m
+Completed 200 OK in 3ms (Views: 0.9ms | ActiveRecord: 0.4ms)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "todos" WHERE "todos"."id" = ?[0m  [["id", 84]]
+  [1m[35m (2.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "todos" WHERE "todos"."id" = ?[0m  [["id", 85]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "todos" WHERE "todos"."id" = ?[0m  [["id", 86]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "todos" ("title", "owner", "complete", "created_at", "updated_at", "due_date") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Due yesterday"], ["owner", "chip.irek@gmail.com"], ["complete", "f"], ["created_at", "2017-10-08 20:11:36.129555"], ["updated_at", "2017-10-08 20:11:36.129555"], ["due_date", "2017-10-07"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("title", "owner", "complete", "created_at", "updated_at", "due_date") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Due today"], ["owner", "chip.irek@gmail.com"], ["complete", "f"], ["created_at", "2017-10-08 20:11:36.131528"], ["updated_at", "2017-10-08 20:11:36.131528"], ["due_date", "2017-10-08"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "todos" ("title", "owner", "complete", "created_at", "updated_at", "due_date") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "walk the dog"], ["owner", "chip.irek@gmail.com"], ["complete", "t"], ["created_at", "2017-10-08 20:11:36.132998"], ["updated_at", "2017-10-08 20:11:36.132998"], ["due_date", "2017-10-08"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "todos" ("title", "owner", "complete", "created_at", "updated_at", "due_date") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "complete yesterday"], ["owner", "chip.irek@gmail.com"], ["complete", "t"], ["created_at", "2017-10-08 20:11:36.134845"], ["updated_at", "2017-10-08 20:11:36.134845"], ["due_date", "2017-10-07"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("title", "owner", "complete", "created_at", "updated_at", "due_date") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Due tomorrow"], ["owner", "chip.irek@gmail.com"], ["complete", "t"], ["created_at", "2017-10-08 20:11:36.136592"], ["updated_at", "2017-10-08 20:11:36.136592"], ["due_date", "2017-10-09"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/tomorrow" for ::1 at 2017-10-08 16:11:42 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TodosController#tomorrow as */*
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE (due_date='2017-10-09')[0m
+Completed 200 OK in 7ms (Views: 4.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/today" for ::1 at 2017-10-08 16:11:48 -0400
+Processing by TodosController#today as */*
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE ((complete is null and due_date<'2017-10-08') or (complete = 'f' and due_date<'2017-10-08') or (due_date='2017-10-08'))[0m
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.2ms)
+
+

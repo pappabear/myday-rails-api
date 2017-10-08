@@ -12,3 +12,5 @@ Todo.destroy_all
 Todo.create(title:'Due yesterday', complete: false, owner:'chip.irek@gmail.com', due_date: Date.today-1)
 Todo.create(title:'Due today', complete: false, owner:'chip.irek@gmail.com', due_date: Date.today)
 Todo.create(title:'walk the dog', complete: true, owner:'chip.irek@gmail.com', due_date: Date.today)
+Todo.create(title:'complete yesterday', complete: true, owner:'chip.irek@gmail.com', due_date: Date.today-1)
+Todo.create(title:'Due tomorrow', complete: true, owner:'chip.irek@gmail.com', due_date: Date.today+1)
