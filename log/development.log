@@ -3768,3 +3768,33 @@ Processing by TodosController#today as */*
 Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.2ms)
 
 
+Started GET "/today" for ::1 at 2017-10-08 16:19:27 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TodosController#today as */*
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE ((complete is null and due_date<'2017-10-08') or (complete = 'f' and due_date<'2017-10-08') or (due_date='2017-10-08'))[0m
+Completed 200 OK in 7ms (Views: 4.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/todos" for ::1 at 2017-10-08 16:19:34 -0400
+Processing by TodosController#index as */*
+Completed 500 Internal Server Error in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/todos_controller.rb:10:in `index'
+Started GET "/todos?d=2017-01-08" for ::1 at 2017-10-08 16:20:17 -0400
+Processing by TodosController#index as */*
+  Parameters: {"d"=>"2017-01-08"}
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE (due_date='2017-01-08')[0m
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos?d=2017-10-08" for ::1 at 2017-10-08 16:20:25 -0400
+Processing by TodosController#index as */*
+  Parameters: {"d"=>"2017-10-08"}
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE (due_date='2017-10-08')[0m
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.1ms)
+
+
