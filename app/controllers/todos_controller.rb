@@ -4,10 +4,10 @@ class TodosController < ApplicationController
 
 
   def index
-    if params['d'].nil?
-      render json: {status: 500, err: 'no date specified.'}
-    end
-    render json: Todo.where('due_date=?', params['d'])
+    #if params['d'].nil?
+    #  render json: {status: 500, err: 'no date specified.'}
+    #end
+    render json: Todo.all #.where('due_date=?', params['d'])
   end
 
 
@@ -68,7 +68,7 @@ class TodosController < ApplicationController
   
   def todo_params
     # whitelist params
-    params.permit(:id, :title, :owner, :complete)
+    params.permit(:id, :title, :owner, :complete, :due_date)
   end
     
   

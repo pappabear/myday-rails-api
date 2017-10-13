@@ -3798,3 +3798,318 @@ Processing by TodosController#index as */*
 Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.1ms)
 
 
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[31mDELETE FROM "todos" WHERE "todos"."id" = ?[0m  [["id", 87]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "todos" WHERE "todos"."id" = ?[0m  [["id", 88]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "todos" WHERE "todos"."id" = ?[0m  [["id", 89]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[31mDELETE FROM "todos" WHERE "todos"."id" = ?[0m  [["id", 90]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "todos" WHERE "todos"."id" = ?[0m  [["id", 91]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "todos" ("title", "owner", "complete", "created_at", "updated_at", "due_date") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Due yesterday"], ["owner", "chip.irek@gmail.com"], ["complete", "f"], ["created_at", "2017-10-13 13:55:01.335464"], ["updated_at", "2017-10-13 13:55:01.335464"], ["due_date", "2017-10-12"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("title", "owner", "complete", "created_at", "updated_at", "due_date") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Due today"], ["owner", "chip.irek@gmail.com"], ["complete", "f"], ["created_at", "2017-10-13 13:55:01.338205"], ["updated_at", "2017-10-13 13:55:01.338205"], ["due_date", "2017-10-13"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("title", "owner", "complete", "created_at", "updated_at", "due_date") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "walk the dog"], ["owner", "chip.irek@gmail.com"], ["complete", "t"], ["created_at", "2017-10-13 13:55:01.340041"], ["updated_at", "2017-10-13 13:55:01.340041"], ["due_date", "2017-10-13"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("title", "owner", "complete", "created_at", "updated_at", "due_date") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "complete yesterday"], ["owner", "chip.irek@gmail.com"], ["complete", "t"], ["created_at", "2017-10-13 13:55:01.341679"], ["updated_at", "2017-10-13 13:55:01.341679"], ["due_date", "2017-10-12"]]
+  [1m[35m (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("title", "owner", "complete", "created_at", "updated_at", "due_date") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Due tomorrow"], ["owner", "chip.irek@gmail.com"], ["complete", "t"], ["created_at", "2017-10-13 13:55:01.343006"], ["updated_at", "2017-10-13 13:55:01.343006"], ["due_date", "2017-10-14"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/todos" for ::1 at 2017-10-13 09:04:36 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TodosController#index as */*
+Completed 500 Internal Server Error in 3ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/todos_controller.rb:10:in `index'
+Started GET "/today" for ::1 at 2017-10-13 09:06:37 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TodosController#today as */*
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE ((complete is null and due_date<'2017-10-13') or (complete = 'f' and due_date<'2017-10-13') or (due_date='2017-10-13'))[0m
+Completed 200 OK in 7ms (Views: 4.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/today" for ::1 at 2017-10-13 09:12:36 -0500
+Processing by TodosController#today as */*
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE ((complete is null and due_date<'2017-10-13') or (complete = 'f' and due_date<'2017-10-13') or (due_date='2017-10-13'))[0m
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/today" for ::1 at 2017-10-13 09:15:47 -0500
+Processing by TodosController#today as */*
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE ((complete is null and due_date<'2017-10-13') or (complete = 'f' and due_date<'2017-10-13') or (due_date='2017-10-13'))[0m
+Completed 200 OK in 1ms (Views: 1.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/today" for ::1 at 2017-10-13 09:19:00 -0500
+Processing by TodosController#today as */*
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE ((complete is null and due_date<'2017-10-13') or (complete = 'f' and due_date<'2017-10-13') or (due_date='2017-10-13'))[0m
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/today" for ::1 at 2017-10-13 09:19:22 -0500
+Processing by TodosController#today as */*
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE ((complete is null and due_date<'2017-10-13') or (complete = 'f' and due_date<'2017-10-13') or (due_date='2017-10-13'))[0m
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/today" for ::1 at 2017-10-13 09:19:25 -0500
+Processing by TodosController#today as */*
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE ((complete is null and due_date<'2017-10-13') or (complete = 'f' and due_date<'2017-10-13') or (due_date='2017-10-13'))[0m
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/today" for ::1 at 2017-10-13 09:19:38 -0500
+Processing by TodosController#today as */*
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE ((complete is null and due_date<'2017-10-13') or (complete = 'f' and due_date<'2017-10-13') or (due_date='2017-10-13'))[0m
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/todos" for ::1 at 2017-10-13 09:19:42 -0500
+Processing by TodosController#create as JSON
+  Parameters: {"title"=>"hello", "complete"=>false, "owner"=>"chip.irek@gmail.com", "todo"=>{"title"=>"hello", "owner"=>"chip.irek@gmail.com", "complete"=>false}}
+Unpermitted parameter: todo
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "todos" ("title", "owner", "complete", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "hello"], ["owner", "chip.irek@gmail.com"], ["complete", "f"], ["created_at", "2017-10-13 14:19:42.289487"], ["updated_at", "2017-10-13 14:19:42.289487"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/todos" for ::1 at 2017-10-13 09:20:11 -0500
+Processing by TodosController#index as */*
+Completed 500 Internal Server Error in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/todos_controller.rb:10:in `index'
+Started GET "/today" for ::1 at 2017-10-13 09:20:16 -0500
+Processing by TodosController#today as */*
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE ((complete is null and due_date<'2017-10-13') or (complete = 'f' and due_date<'2017-10-13') or (due_date='2017-10-13'))[0m
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/today" for ::1 at 2017-10-13 09:21:03 -0500
+Processing by TodosController#today as */*
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE ((complete is null and due_date<'2017-10-13') or (complete = 'f' and due_date<'2017-10-13') or (due_date='2017-10-13'))[0m
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/todos" for ::1 at 2017-10-13 09:21:04 -0500
+Processing by TodosController#create as JSON
+  Parameters: {"title"=>"ertw", "complete"=>false, "owner"=>"chip.irek@gmail.com", "todo"=>{"title"=>"ertw", "owner"=>"chip.irek@gmail.com", "complete"=>false}}
+Unpermitted parameter: todo
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "todos" ("title", "owner", "complete", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "ertw"], ["owner", "chip.irek@gmail.com"], ["complete", "f"], ["created_at", "2017-10-13 14:21:04.834137"], ["updated_at", "2017-10-13 14:21:04.834137"]]
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 5ms (Views: 0.5ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/today" for ::1 at 2017-10-13 09:23:51 -0500
+Processing by TodosController#today as */*
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE ((complete is null and due_date<'2017-10-13') or (complete = 'f' and due_date<'2017-10-13') or (due_date='2017-10-13'))[0m
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/todos" for ::1 at 2017-10-13 09:26:56 -0500
+Processing by TodosController#create as JSON
+  Parameters: {"title"=>"sdfgs", "complete"=>false, "owner"=>"chip.irek@gmail.com", "todo"=>{"title"=>"sdfgs", "owner"=>"chip.irek@gmail.com", "complete"=>false}}
+Unpermitted parameter: todo
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "todos" ("title", "owner", "complete", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "sdfgs"], ["owner", "chip.irek@gmail.com"], ["complete", "f"], ["created_at", "2017-10-13 14:26:56.352123"], ["updated_at", "2017-10-13 14:26:56.352123"]]
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 5ms (Views: 0.5ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/today" for ::1 at 2017-10-13 09:27:35 -0500
+Processing by TodosController#today as */*
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE ((complete is null and due_date<'2017-10-13') or (complete = 'f' and due_date<'2017-10-13') or (due_date='2017-10-13'))[0m
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/todos" for ::1 at 2017-10-13 09:27:42 -0500
+Processing by TodosController#create as JSON
+  Parameters: {"title"=>"wer", "complete"=>false, "owner"=>"chip.irek@gmail.com", "todo"=>{"title"=>"wer", "owner"=>"chip.irek@gmail.com", "complete"=>false}}
+Unpermitted parameter: todo
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "todos" ("title", "owner", "complete", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "wer"], ["owner", "chip.irek@gmail.com"], ["complete", "f"], ["created_at", "2017-10-13 14:27:42.535500"], ["updated_at", "2017-10-13 14:27:42.535500"]]
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 5ms (Views: 0.5ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/today" for ::1 at 2017-10-13 12:38:50 -0500
+Processing by TodosController#today as */*
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE ((complete is null and due_date<'2017-10-13') or (complete = 'f' and due_date<'2017-10-13') or (due_date='2017-10-13'))[0m
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/today" for ::1 at 2017-10-13 12:39:52 -0500
+Processing by TodosController#today as */*
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE ((complete is null and due_date<'2017-10-13') or (complete = 'f' and due_date<'2017-10-13') or (due_date='2017-10-13'))[0m
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/today" for ::1 at 2017-10-13 12:39:57 -0500
+Processing by TodosController#today as */*
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE ((complete is null and due_date<'2017-10-13') or (complete = 'f' and due_date<'2017-10-13') or (due_date='2017-10-13'))[0m
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/todos" for ::1 at 2017-10-13 12:39:59 -0500
+Processing by TodosController#create as JSON
+  Parameters: {"title"=>"asd", "complete"=>false, "owner"=>"chip.irek@gmail.com", "todo"=>{"title"=>"asd", "owner"=>"chip.irek@gmail.com", "complete"=>false}}
+Unpermitted parameter: todo
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "todos" ("title", "owner", "complete", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "asd"], ["owner", "chip.irek@gmail.com"], ["complete", "f"], ["created_at", "2017-10-13 17:39:59.880528"], ["updated_at", "2017-10-13 17:39:59.880528"]]
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 5ms (Views: 0.4ms | ActiveRecord: 2.4ms)
+
+
+Started POST "/todos" for ::1 at 2017-10-13 12:40:32 -0500
+Processing by TodosController#create as JSON
+  Parameters: {"title"=>"ert", "complete"=>false, "owner"=>"chip.irek@gmail.com", "todo"=>{"title"=>"ert", "owner"=>"chip.irek@gmail.com", "complete"=>false}}
+Unpermitted parameter: todo
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "todos" ("title", "owner", "complete", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "ert"], ["owner", "chip.irek@gmail.com"], ["complete", "f"], ["created_at", "2017-10-13 17:40:32.296469"], ["updated_at", "2017-10-13 17:40:32.296469"]]
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 6ms (Views: 0.4ms | ActiveRecord: 3.6ms)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "todos" WHERE "todos"."id" = ?[0m  [["id", 92]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[31mDELETE FROM "todos" WHERE "todos"."id" = ?[0m  [["id", 93]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[31mDELETE FROM "todos" WHERE "todos"."id" = ?[0m  [["id", 94]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[31mDELETE FROM "todos" WHERE "todos"."id" = ?[0m  [["id", 95]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[31mDELETE FROM "todos" WHERE "todos"."id" = ?[0m  [["id", 96]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[31mDELETE FROM "todos" WHERE "todos"."id" = ?[0m  [["id", 97]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (2.2ms)[0m  [1m[31mDELETE FROM "todos" WHERE "todos"."id" = ?[0m  [["id", 98]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[31mDELETE FROM "todos" WHERE "todos"."id" = ?[0m  [["id", 99]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[31mDELETE FROM "todos" WHERE "todos"."id" = ?[0m  [["id", 100]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[31mDELETE FROM "todos" WHERE "todos"."id" = ?[0m  [["id", 101]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[31mDELETE FROM "todos" WHERE "todos"."id" = ?[0m  [["id", 102]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("title", "owner", "complete", "created_at", "updated_at", "due_date") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Due yesterday"], ["owner", "chip.irek@gmail.com"], ["complete", "f"], ["created_at", "2017-10-13 17:41:39.599465"], ["updated_at", "2017-10-13 17:41:39.599465"], ["due_date", "2017-10-12"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "todos" ("title", "owner", "complete", "created_at", "updated_at", "due_date") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Due today"], ["owner", "chip.irek@gmail.com"], ["complete", "f"], ["created_at", "2017-10-13 17:41:39.601110"], ["updated_at", "2017-10-13 17:41:39.601110"], ["due_date", "2017-10-13"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("title", "owner", "complete", "created_at", "updated_at", "due_date") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "walk the dog"], ["owner", "chip.irek@gmail.com"], ["complete", "t"], ["created_at", "2017-10-13 17:41:39.602478"], ["updated_at", "2017-10-13 17:41:39.602478"], ["due_date", "2017-10-13"]]
+  [1m[35m (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "todos" ("title", "owner", "complete", "created_at", "updated_at", "due_date") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "complete yesterday"], ["owner", "chip.irek@gmail.com"], ["complete", "t"], ["created_at", "2017-10-13 17:41:39.603763"], ["updated_at", "2017-10-13 17:41:39.603763"], ["due_date", "2017-10-12"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("title", "owner", "complete", "created_at", "updated_at", "due_date") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Due tomorrow"], ["owner", "chip.irek@gmail.com"], ["complete", "t"], ["created_at", "2017-10-13 17:41:39.605049"], ["updated_at", "2017-10-13 17:41:39.605049"], ["due_date", "2017-10-14"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/today" for ::1 at 2017-10-13 12:41:47 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TodosController#today as */*
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE ((complete is null and due_date<'2017-10-13') or (complete = 'f' and due_date<'2017-10-13') or (due_date='2017-10-13'))[0m
+Completed 200 OK in 9ms (Views: 5.6ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/todos" for ::1 at 2017-10-13 12:41:49 -0500
+Processing by TodosController#create as JSON
+  Parameters: {"title"=>"ewrt", "complete"=>false, "owner"=>"chip.irek@gmail.com", "todo"=>{"title"=>"ewrt", "owner"=>"chip.irek@gmail.com", "complete"=>false}}
+Unpermitted parameter: todo
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "todos" ("title", "owner", "complete", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "ewrt"], ["owner", "chip.irek@gmail.com"], ["complete", "f"], ["created_at", "2017-10-13 17:41:49.764986"], ["updated_at", "2017-10-13 17:41:49.764986"]]
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 6ms (Views: 0.5ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/today" for ::1 at 2017-10-13 12:42:00 -0500
+Processing by TodosController#today as */*
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE ((complete is null and due_date<'2017-10-13') or (complete = 'f' and due_date<'2017-10-13') or (due_date='2017-10-13'))[0m
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/today" for ::1 at 2017-10-13 12:42:19 -0500
+Processing by TodosController#today as */*
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE ((complete is null and due_date<'2017-10-13') or (complete = 'f' and due_date<'2017-10-13') or (due_date='2017-10-13'))[0m
+Completed 200 OK in 8ms (Views: 5.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/todos" for ::1 at 2017-10-13 12:42:27 -0500
+Processing by TodosController#index as */*
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE (due_date=NULL)[0m
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/todos" for ::1 at 2017-10-13 12:43:13 -0500
+Processing by TodosController#index as */*
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+Completed 200 OK in 8ms (Views: 5.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/today" for ::1 at 2017-10-13 12:46:18 -0500
+Processing by TodosController#today as */*
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE ((complete is null and due_date<'2017-10-13') or (complete = 'f' and due_date<'2017-10-13') or (due_date='2017-10-13'))[0m
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/today" for ::1 at 2017-10-13 12:46:26 -0500
+Processing by TodosController#today as */*
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE ((complete is null and due_date<'2017-10-13') or (complete = 'f' and due_date<'2017-10-13') or (due_date='2017-10-13'))[0m
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/todos" for ::1 at 2017-10-13 12:46:42 -0500
+Processing by TodosController#create as JSON
+  Parameters: {"title"=>"sdfg", "complete"=>false, "owner"=>"chip.irek@gmail.com", "due_date"=>"2017-10-13", "todo"=>{"title"=>"sdfg", "owner"=>"chip.irek@gmail.com", "complete"=>false, "due_date"=>"2017-10-13"}}
+Unpermitted parameter: todo
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "todos" ("title", "owner", "complete", "created_at", "updated_at", "due_date") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "sdfg"], ["owner", "chip.irek@gmail.com"], ["complete", "f"], ["created_at", "2017-10-13 17:46:42.029031"], ["updated_at", "2017-10-13 17:46:42.029031"], ["due_date", "2017-10-13"]]
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 5ms (Views: 0.4ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/todos" for ::1 at 2017-10-13 12:46:50 -0500
+Processing by TodosController#index as */*
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.1ms)
+
+
