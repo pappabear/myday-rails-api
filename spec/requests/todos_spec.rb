@@ -1,10 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe 'Todos API', type: :request do
+  let!(:users) { create_list(:user, 10) }
+  let(:user_id) { users.first.id }
   let!(:todos) { create_list(:todo, 10) }
   let(:todo_id) { todos.first.id }
-
-
+  
   describe 'GET /todos' do
     before { get '/todos' }
 
@@ -48,7 +49,7 @@ RSpec.describe 'Todos API', type: :request do
 
   
   describe 'POST /todos' do
-    let(:valid_attributes) { { title: 'Learn Elm', owner: 'darth.vader@death.star', complete:false, due_date:Date.today } }
+    let(:valid_attributes) { { title: 'Learn Elm', user_id: user_id, complete:false, due_date:Date.today } }
 
     context 'when request is valid' do
       before { post '/todos', params: valid_attributes }
@@ -71,14 +72,14 @@ RSpec.describe 'Todos API', type: :request do
 
       it 'returns a validation failure message' do
         expect(response.body)
-          .to match(/Validation failed: Owner can't be blank/)
+          .to match(/Validation failed: User must exist/)
       end
     end
   end
 
 
   describe 'PUT /todos/:id' do
-    let(:valid_attributes) { { title: 'Shopping', complete:false, owner:'chuck.norris@wow.com' }.to_json }
+    let(:valid_attributes) { { title: 'Shopping', complete:false, user_id: user_id }.to_json }
 
     context 'when the record exists' do
       before { put "/todos/#{todo_id}", params: valid_attributes }
