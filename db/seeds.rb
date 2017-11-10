@@ -8,9 +8,12 @@
 
 
 Todo.destroy_all
+User.destroy_all
 
-Todo.create(title:'Due yesterday', complete: false, user_id: Users.first.id, due_date: Date.today-1)
-Todo.create(title:'Due today', complete: false, user_id: Users.first.id, due_date: Date.today)
-Todo.create(title:'walk the dog', complete: true, user_id: Users.first.id, due_date: Date.today)
-Todo.create(title:'complete yesterday', complete: true, user_id: Users.first.id, due_date: Date.today-1)
-Todo.create(title:'Due tomorrow', complete: true, user_id: Users.first.id, due_date: Date.today+1)
+User.create(name: 'Donald Duck', email: 'a@b.c', password_digest: 'abc')
+
+Todo.create(title:'Due yesterday', complete: false, user_id: User.first.id, due_date: Date.today-1)
+Todo.create(title:'Due today', complete: false, user_id: User.first.id, due_date: Date.today)
+Todo.create(title:'walk the dog', complete: true, user_id: User.first.id, due_date: Date.today)
+Todo.create(title:'complete yesterday', complete: true, user_id: User.first.id, due_date: Date.today-1)
+Todo.create(title:'Due tomorrow', complete: true, user_id: User.first.id, due_date: Date.today+1)
